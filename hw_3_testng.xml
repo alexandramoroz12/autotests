@@ -3,6 +3,8 @@
     <test name="First test">
         <classes>
             <class name="test.java.hw_3_testng.Task1_test"></class>
+            <class name="test.java.hw_3_testng.Task2_test"></class>
+            <class name="test.java.hw_3_testng.Task5_test"></class>
         </classes>
     </test>
 </suite>
