@@ -1,5 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="First suite">
+    <parameter name="string to reverse" value="Hello"></parameter>
+    <parameter name="reversed string" value="olleH"></parameter>
     <test name="First test">
         <classes>
             <class name="test.java.hw_3_testng.Task1_test"></class>

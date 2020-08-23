@@ -31,6 +31,7 @@ public class Task2_test {
         System.out.println("- After all Methods");
     }
 
+
     @Test //(groups = "test matrix")
     public void testMatrixRowEquality () { // test checked that matrix has 5 rows
 
@@ -43,7 +44,7 @@ public class Task2_test {
     }
 
     @Test // (groups = "test matrix")
-    public void testMatrixRowsLengthEquality () {
+    public void testMatrixRowsLengthEquality () { // test checked that matrix's row length is 10
 
         String result = task2TestNGJava.returnNameUsingForLoop();
 
@@ -58,6 +59,4 @@ public class Task2_test {
 
     }
 
-
-    //параметризированный тест DataProvider
 }

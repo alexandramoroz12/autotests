@@ -9,9 +9,9 @@ public class Task1TestNGJava {
         for (int el : arr) {
             min_value = min_value < el ? min_value : el;
         }
-
         return min_value;
 
     }
+
 
 }
