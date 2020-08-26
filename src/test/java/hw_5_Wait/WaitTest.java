@@ -1,6 +1,5 @@
 package test.java.hw_5_Wait;
 
-import com.sun.org.apache.xpath.internal.operations.String;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -104,17 +103,17 @@ public class WaitTest {
         driver.findElement(registerButtonOnSignUoScreenByMixed).click();
 
         WebElement nameInput = driver.findElement(errorNameFrame2);
-        String actualColorName = nameInput.getCssValue("border-color");
-        String expectedColor = "rgb(253, 124, 124)";
+        java.lang.String actualColorName = nameInput.getCssValue("border-color");
+        java.lang.String expectedColor = "rgb(253, 124, 124)";
         assertEquals(actualColorName, expectedColor);
 
         WebElement emailInput = driver.findElement(errorEmailFrame2);
-        String actualColorEmail = emailInput.getCssValue("border-color");
+        java.lang.String actualColorEmail = emailInput.getCssValue("border-color");
         assertEquals(actualColorEmail, expectedColor);
 
 
         WebElement passInput = driver.findElement(errorPasswordFrame2);
-        String actualColorPass = passInput.getCssValue("border-color");
+        java.lang.String actualColorPass = passInput.getCssValue("border-color");
         assertEquals(actualColorPass, expectedColor);
 
      }
@@ -147,14 +146,14 @@ public class WaitTest {
         driver.findElement(registerButtonOnSignUoScreenByMixed).click();
 
         WebElement nameInput = driver.findElement(errorNameFrame2);
-        String actualColorName = nameInput.getCssValue("border-color");
-        String expectedColor = "rgb(253, 124, 124)";
+        java.lang.String actualColorName = nameInput.getCssValue("border-color");
+        java.lang.String expectedColor = "rgb(253, 124, 124)";
         assertEquals(actualColorName, expectedColor);
 
 
         WebElement emailInput = driver.findElement(errorEmailFrame2);
-        String actualColorEmail = emailInput.getCssValue("border-color");
-        String expectedColorEmail = "#d2d2d2";
+        java.lang.String actualColorEmail = emailInput.getCssValue("border-color");
+        java.lang.String expectedColorEmail = "#d2d2d2";
         assertEquals(actualColorEmail, expectedColorEmail);
 
 
