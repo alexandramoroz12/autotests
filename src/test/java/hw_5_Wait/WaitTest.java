@@ -1,5 +1,6 @@
 package test.java.hw_5_Wait;
 
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -150,11 +151,12 @@ public class WaitTest {
         String expectedColor = "rgb(253, 124, 124)";
         assertEquals(actualColorName, expectedColor);
 
-        /*
+
         WebElement emailInput = driver.findElement(errorEmailFrame2);
         String actualColorEmail = emailInput.getCssValue("border-color");
-        assertEquals(actualColorEmail, expectedColor);
-        */
+        String expectedColorEmail = "#d2d2d2";
+        assertEquals(actualColorEmail, expectedColorEmail);
+
 
         WebElement passInput = driver.findElement(errorPasswordFrame2);
         String actualColorPass = passInput.getCssValue("border-color");
