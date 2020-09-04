@@ -61,7 +61,7 @@ public class TestHW6PO {
         List<WebElement> goods2 = driver.findElements(By.xpath("//div[@class='g-i-tile-i-title clearfix']"));
         for (WebElement good: goods2) {
             //String actualGoodName = good.getText().contains("Samsung");
-            assertTrue(good.getText().contains(expectedGoodName));
+            assertTrue(good.getText().toLowerCase().contains(expectedGoodName));
         }
 
     }
