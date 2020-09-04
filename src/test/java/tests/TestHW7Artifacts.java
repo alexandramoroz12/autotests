@@ -46,12 +46,18 @@ public class TestHW7Artifacts {
     public void  test (String arr []) {
 
         driver.get("https://rozetka.com.ua/notebooks/c80004/");
+
+        //список всех чекбоксов слева на странице Ноутбуков
         List<WebElement> producersCheckboxes = driver.findElements(By.xpath("//input[@class='custom-checkbox']"));
 
+        //в цикле последовательно нажимаем на чекбоксы с производителем
         for (String checkbox : arr){
             homePage.clickFilter(checkbox);
 
+            //список товаров определенного производителя
             List<WebElement> goods = driver.findElements(By.xpath("//span[@class='goods-tile__title']"));
+
+            // в цикле проверяем, что каждый товар содержит название производителя
             for (WebElement good : goods) {
 
                 assertTrue(good.getText().toLowerCase().contains(arr));

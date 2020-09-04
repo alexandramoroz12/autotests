@@ -33,6 +33,7 @@ public class HomePage {
         return this;
     }
 
+
     public HomePage clickFilter () {
 
         WebElement filter = driver.findElement(filterCheckbox);
@@ -40,4 +41,17 @@ public class HomePage {
         filter.click();
         return this;
     }
+
+
+
+
+    public HomePage clickFilter (WebElement filter) {
+
+       // WebElement filter = driver.findElement(filterCheckbox);
+        // wait.until(ExpectedConditions.elementToBeClickable(contactBtnBy));
+        filter.click();
+        return this;
+    }
+
+
 }
