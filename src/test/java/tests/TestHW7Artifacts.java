@@ -6,11 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.java.pages.HomePage;
+import test.java.utils.Screenshot;
 
 import java.security.SecureRandom;
 import java.util.List;
@@ -43,16 +45,16 @@ public class TestHW7Artifacts {
     }
 
     @Test(dataProvider = "dp")
-    public void  test (String arr []) {
+    public void  test (String arr) {
 
         driver.get("https://rozetka.com.ua/notebooks/c80004/");
 
         //список всех чекбоксов слева на странице Ноутбуков
-        List<WebElement> producersCheckboxes = driver.findElements(By.xpath("//input[@class='custom-checkbox']"));
+        // List<WebElement> producersCheckboxes = driver.findElements(By.xpath("//input[@class='custom-checkbox']"));
 
         //в цикле последовательно нажимаем на чекбоксы с производителем
-        for (String checkbox : arr){
-            homePage.clickFilter(checkbox);
+       // for (String checkbox : arr){
+            homePage.clickFilter(arr);
 
             //список товаров определенного производителя
             List<WebElement> goods = driver.findElements(By.xpath("//span[@class='goods-tile__title']"));
@@ -60,17 +62,20 @@ public class TestHW7Artifacts {
             // в цикле проверяем, что каждый товар содержит название производителя
             for (WebElement good : goods) {
 
-                assertTrue(good.getText().toLowerCase().contains(arr));
+                assertTrue(good.getText().toLowerCase().contains(arr.toLowerCase()));
             }
 
-        }
+       // }
     }
 
 
     @AfterMethod
-    public void tearDown () {
+    public void tearDown (ITestResult result) {
+        Screenshot screenshot = new Screenshot(driver);
+        screenshot.makeScreenshot(result);
         driver.quit();
     }
+
 
     @DataProvider(name = "dp")
     public Object[][] provider () {
@@ -85,4 +90,6 @@ public class TestHW7Artifacts {
                 {"Samsung"},{"Teclast"},{"Toshiba"},{"Vinga"},{"Yepo"}
         };
     }
+
+
 }
