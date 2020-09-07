@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="FirstSuite">
+    <listeners>
+        <listener class-name="test.java.utils.Listener"></listener>
+        <listener class-name="test.java.utils.AnnotationTransformer"></listener>
+    </listeners>
+
+    <test name="FirstTest">
+        <classes>
+            <class name="test.java.tests.TestHW7Artifacts"/>
+        </classes>
+    </test>
+</suite>

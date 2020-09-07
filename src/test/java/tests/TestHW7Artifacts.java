@@ -6,12 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.java.pages.HomePage;
+import test.java.utils.PropertyLoader;
+import test.java.utils.RetryAnalyzer;
 import test.java.utils.Screenshot;
 
 import java.security.SecureRandom;
@@ -30,7 +33,7 @@ public class TestHW7Artifacts {
 
 
     @BeforeMethod
-    public void setUp () {
+    public void setUp (ITestContext testContext) {
 
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
@@ -41,13 +44,14 @@ public class TestHW7Artifacts {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10, 500);
         homePage = new HomePage(driver);
+        testContext.setAttribute("driver", driver);
 
     }
 
     @Test(dataProvider = "dp")
     public void  test (String arr) {
 
-        driver.get("https://rozetka.com.ua/notebooks/c80004/");
+        driver.get(PropertyLoader.loadProperty("notebookurl"));
 
         //список всех чекбоксов слева на странице Ноутбуков
         // List<WebElement> producersCheckboxes = driver.findElements(By.xpath("//input[@class='custom-checkbox']"));
@@ -70,9 +74,8 @@ public class TestHW7Artifacts {
 
 
     @AfterMethod
-    public void tearDown (ITestResult result) {
-        Screenshot screenshot = new Screenshot(driver);
-        screenshot.makeScreenshot(result);
+    public void tearDown () {
+
         driver.quit();
     }
 

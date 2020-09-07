@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 public class HomePage {
 
@@ -41,7 +42,7 @@ public class HomePage {
 
         this.logger.info("Home page was opened");
         logger.debug("Logger debug");
-        driver.get("https://rozetka.com.ua/");
+        driver.get(PropertyLoader.loadProperty("baseurl"));
         return this;
     }
 
