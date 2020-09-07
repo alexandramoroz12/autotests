@@ -28,6 +28,7 @@ public class HomePage {
     }
 
 
+
     public HomePage open () {
 
         this.logger.trace("Trace");
