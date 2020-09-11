@@ -71,7 +71,8 @@ public class HomePage {
         WebElement filterElement = driver.findElement(By.cssSelector("div[data-filter-name='producer'] label[for='" + filter + "']"));
         wait.until(ExpectedConditions.elementToBeClickable(filterElement));
         filterElement.click();
-        wait.until(ExpectedConditions.textToBePresentInElement(filterElement,filter));
+        //wait.until(ExpectedConditions.textToBePresentInElement(filterElement,filter));
+        wait.until(d -> d.findElement(By.xpath("//span[@class='goods-tile__title']")).getText().contains(filter));
         return this;
     }
 
