@@ -17,7 +17,8 @@ public class HomePage {
 
     Logger logger = LogManager.getLogger(HomePage.class);
 
-    By searchInput = By.xpath("//input[@class='rz-header-search-input-text passive']");
+    //By searchInput = By.xpath("//input[@class='rz-header-search-input-text passive']");
+    By searchInput = By.xpath("//input[@class='search-form__input ng-untouched ng-pristine ng-valid']");
     By searchButton = By.xpath("//button[@class='btn-link-i js-rz-search-button']");
    // By filterCheckbox = By.xpath("//input[@class='custom-checkbox']");
 
@@ -68,7 +69,8 @@ public class HomePage {
 
 
     public HomePage clickFilter (String filter) {
-        WebElement filterElement = driver.findElement(By.cssSelector("div[data-filter-name='producer'] label[for='" + filter + "']"));
+       WebElement filterElement = driver.findElement(By.cssSelector("div[data-filter-name='producer'] label[for='" + filter + "']"));
+       //WebElement filterElement = driver.findElement(By.cssSelector("[div[class='scrollbar__inner']label[for='" + filter + "']"));
         wait.until(ExpectedConditions.elementToBeClickable(filterElement));
         filterElement.click();
         //wait.until(ExpectedConditions.textToBePresentInElement(filterElement,filter));
