@@ -51,7 +51,7 @@ public class TestHW10Allure {
     @Test
     public void test () {
 
-        driver.get(PropertyLoader.loadProperty("universumnotebooksurl"));
+        driver.get(PropertyLoader.loadProperty("notebookurl"));
 
         int counter = (int)( Math.random()*(producers.length));
 
