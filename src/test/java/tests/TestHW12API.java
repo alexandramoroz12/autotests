@@ -4,7 +4,9 @@ import org.testng.annotations.Test;
 import test.java.utils.PropertyLoader;
 
 import java.io.File;
+import java.util.*;
 import java.util.UUID;
+
 
 import static io.restassured.RestAssured.given;
 import static org.jvnet.fastinfoset.EncodingAlgorithmIndexes.UUID;
@@ -38,7 +40,7 @@ public class TestHW12API {
         given().header("Authorization", "Bearer 695ed461606475fbb293fe504a213ea43c92d54c")
                 .contentType("application/json").log().all()
                 .when()
-                .post(PropertyLoader.loadProperty("api.url") + "/projects")
+                .get(PropertyLoader.loadProperty("api.url") + "/projects")
                 .then().log().all()
                 .statusCode(200);
     }
@@ -48,12 +50,15 @@ public class TestHW12API {
     public void updateProject () {
 
 
-        UUID uuid = UUID.randomUUID();
+        //UUID uuid = UUID.randomUUID();
+        UUID uuid = UUID.fromString("38400000-8cf0-11bd-b23e-10b96e4ef00d");
+        UUID uid = uuid.randomUUID();
+
 
         given()
          .header("Authorization", "Bearer 695ed461606475fbb293fe504a213ea43c92d54c")
                 .contentType("application/json")
-                .header("X-Request-Id:",uuid)
+                .header("X-Request-Id:",uid)
                 .formParam("name", "api project edited")
                 .when()
                 .post(PropertyLoader.loadProperty("api.url") + "/projects"+ createdID)
